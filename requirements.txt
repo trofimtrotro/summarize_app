@@ -1,0 +1,1 @@
+pip install pyqt6 pydub openai-whisper langchain_community faiss-cpu yandexcloud moviepy
