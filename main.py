@@ -150,7 +150,7 @@ def initialize_llm():
     try:
         template = "{question}"
         prompt = PromptTemplate.from_template(template)
-        llm = YandexGPT(api_key='AQVNzj3OZn8cZ9sQSX-2LbdaM2oYKD1Q99oK1yLL', folder_id='b1gjm0a8utlng73dcua8')
+        llm = YandexGPT(os.getenv(api_key), os.getenv(folder_id))
         return LLMChain(prompt=prompt, llm=llm)
     except Exception as e:
         logging.error(f"Ошибка инициализации LLM: {e}")
