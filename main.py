@@ -138,19 +138,6 @@ def initialize_llm():
         template = "{question}"
         prompt = PromptTemplate.from_template(template)
         llm = YandexGPT(os.getenv(api_key), os.getenv(folder_id))
-        return prompt | llm  # Используем новый формат вместо LLMChain
-    except Exception as e:
-        logging.error(f"Ошибка инициализации LLM: {e}")
-        raise RuntimeError(f"Ошибка инициализации LLM: {e}")
-
-def initialize_llm():
-    """
-    Инициализация LLM для обработки текста.
-    """
-    try:
-        template = "{question}"
-        prompt = PromptTemplate.from_template(template)
-        llm = YandexGPT(os.getenv(api_key), os.getenv(folder_id))
         return LLMChain(prompt=prompt, llm=llm)
     except Exception as e:
         logging.error(f"Ошибка инициализации LLM: {e}")
